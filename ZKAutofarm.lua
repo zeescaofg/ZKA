@@ -190,33 +190,21 @@ local function createPlatform()
     end
 end
 
-local function viewPlayer(playerName)
-    local lowerPlayerName = playerName:lower()
-    local target
-
-    -- Find the player with the specified name
-    for _, p in pairs(game.Players:GetPlayers()) do
-        if p.Name:lower():find(lowerPlayerName) then
-            target = p
-            break
+function viewPlayerPerspective(playerName)
+    local targetPlayer = game.Players:FindFirstChild(playerName)
+    if targetPlayer then
+        local character = targetPlayer.Character
+        if character and character:FindFirstChild("HumanoidRootPart") then
+            -- Change the camera to the target player's perspective
+            local camera = game.Workspace.CurrentCamera
+            camera.CameraSubject = character:FindFirstChild("Humanoid")
+            camera.CameraType = Enum.CameraType.Custom
+            NotifyUser("Now viewing " .. playerName .. "'s perspective.")
+        else
+            NotifyUser("Player does not have a valid character.")
         end
-    end
-
-    if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
-        -- Teleport the camera to the player's position
-        local targetPosition = target.Character.HumanoidRootPart.Position
-        local camera = game.Workspace.CurrentCamera
-        camera.CFrame = CFrame.new(targetPosition + Vector3.new(0, 5, 0))  -- Camera slightly above the player
-
-        -- Continuously update the camera to follow the player
-        while target.Character and target.Character:FindFirstChild("HumanoidRootPart") do
-            camera.CFrame = CFrame.new(target.Character.HumanoidRootPart.Position + Vector3.new(0, 5, 0))
-            wait(0.1)  -- Update every 0.1 seconds
-        end
-
-        NotifyUser("You are now viewing " .. target.Name)
     else
-        NotifyUser("Failed to view: Target player not found or invalid")
+        NotifyUser("Player not found.")
     end
 end
 
@@ -418,7 +406,7 @@ player.Chatted:Connect(function(message)
     elseif command == ".view" then
         local playerName = arg
         if playerName and playerName ~= "" then
-            viewPlayer(playerName)  -- Call the function to view the specified player
+            viewPlayerPerspective(playerName)  -- Call the function to view the specified player
         else
             NotifyUser("Please provide a valid username to view.")
         end
