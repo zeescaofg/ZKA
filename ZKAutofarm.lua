@@ -35,7 +35,6 @@ local commandsList = {
     ".lobby - put the player in the currently lobby in the game",
     ".copyposition - copy the position vector of your character",
     ".cmds - Show this list of commands",
-    ".view (playername) - View (follow) the specified player"
 }
 
 -- Preloading the function names because there were some nil issues
@@ -187,24 +186,6 @@ local function createPlatform()
         NotifyUser("Teleported onto the platform")
     else
         NotifyUser("Failed to create platform: Character is missing HumanoidRootPart")
-    end
-end
-
-function viewPlayerPerspective(playerName)
-    local targetPlayer = game.Players:FindFirstChild(playerName)
-    if targetPlayer then
-        local character = targetPlayer.Character
-        if character and character:FindFirstChild("HumanoidRootPart") then
-            -- Change the camera to the target player's perspective
-            local camera = game.Workspace.CurrentCamera
-            camera.CameraSubject = character:FindFirstChild("Humanoid")
-            camera.CameraType = Enum.CameraType.Custom
-            NotifyUser("Now viewing " .. playerName .. "'s perspective.")
-        else
-            NotifyUser("Player does not have a valid character.")
-        end
-    else
-        NotifyUser("Player not found.")
     end
 end
 
@@ -404,12 +385,6 @@ player.Chatted:Connect(function(message)
     elseif command == ".cmds" then
         handleCmdsCommand()  -- Handle the list of commands
     elseif command == ".view" then
-        local playerName = arg
-        if playerName and playerName ~= "" then
-            viewPlayerPerspective(playerName)  -- Call the function to view the specified player
-        else
-            NotifyUser("Please provide a valid username to view.")
-        end
     end
 end)
 
