@@ -34,7 +34,8 @@ local commandsList = {
     ".map - put the player inside the current map in the game",
     ".lobby - put the player in the currently lobby in the game",
     ".copyposition - copy the position vector of your character",
-    ".cmds - Show this list of commands"
+    ".cmds - Show this list of commands",
+    ".view (playername) - View (follow) the specified player"
 }
 
 -- Preloading the function names because there were some nil issues
@@ -186,6 +187,36 @@ local function createPlatform()
         NotifyUser("Teleported onto the platform")
     else
         NotifyUser("Failed to create platform: Character is missing HumanoidRootPart")
+    end
+end
+
+local function viewPlayer(playerName)
+    local lowerPlayerName = playerName:lower()
+    local target
+
+    -- Find the player with the specified name
+    for _, p in pairs(game.Players:GetPlayers()) do
+        if p.Name:lower():find(lowerPlayerName) then
+            target = p
+            break
+        end
+    end
+
+    if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+        -- Teleport the camera to the player's position
+        local targetPosition = target.Character.HumanoidRootPart.Position
+        local camera = game.Workspace.CurrentCamera
+        camera.CFrame = CFrame.new(targetPosition + Vector3.new(0, 5, 0))  -- Camera slightly above the player
+
+        -- Continuously update the camera to follow the player
+        while target.Character and target.Character:FindFirstChild("HumanoidRootPart") do
+            camera.CFrame = CFrame.new(target.Character.HumanoidRootPart.Position + Vector3.new(0, 5, 0))
+            wait(0.1)  -- Update every 0.1 seconds
+        end
+
+        NotifyUser("You are now viewing " .. target.Name)
+    else
+        NotifyUser("Failed to view: Target player not found or invalid")
     end
 end
 
@@ -382,10 +413,18 @@ player.Chatted:Connect(function(message)
         teleportToLobby()  -- Call the function to teleport to the lobby position
     elseif command == ".map" then
         teleportToMap()  -- Call the function to teleport to the spawn part
-    elseif command ==".cmds" then
-        handleCmdsCommand()    
+    elseif command == ".cmds" then
+        handleCmdsCommand()  -- Handle the list of commands
+    elseif command == ".view" then
+        local playerName = arg
+        if playerName and playerName ~= "" then
+            viewPlayer(playerName)  -- Call the function to view the specified player
+        else
+            NotifyUser("Please provide a valid username to view.")
+        end
     end
 end)
+
 
 game:GetService("RunService").Heartbeat:Connect(function()
     preventFling()
