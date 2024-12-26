@@ -1,1 +1,581 @@
-local ek = 1 local se = false local bs = false local rb = game.Players.LocalPlayer local clg = false local ifr = false local hi = false local th = false local _t = nil local g_t = false local l = 50 local clg = false local dc = { "\46\107\105\108\108\97\108\108\32\45\32\69\110\97\98\108\101\32\47\32\68\105\115\97\98\108\101\32\107\105\108\108\32\97\108\108", "\46\115\112\101\101\100\32\40\110\117\109\98\101\114\41\32\45\32\83\101\116\32\107\105\108\108\32\97\108\108\32\115\112\101\101\100\32\40\49\45\49\48\48\48\41", "\46\115\117\112\101\114\115\112\101\101\100\32\45\32\69\110\97\98\108\101\32\115\117\112\101\114\115\112\101\101\100",   "\46\113\117\105\116\32\45\32\85\110\108\111\97\100\32\116\104\105\115\32\115\99\114\105\112\116", "\46\116\111\32\40\117\115\101\114\110\97\109\101\41\32\45\32\84\101\108\101\112\111\114\116\32\116\111\32\116\104\101\32\115\112\101\99\105\102\105\101\100\32\112\108\97\121\101\114", "\46\117\112\32\45\32\80\117\116\32\116\104\101\32\112\108\97\121\101\114\32\117\112\32\105\110\32\116\104\101\32\97\105\114\32\97\98\111\118\101\32\109\97\112\32\98\97\114\114\105\101\114", "\46\100\111\119\110\32\45\32\112\117\116\32\116\104\101\32\112\108\97\121\101\114\32\100\111\119\110\32\117\110\100\101\114\32\116\104\101\32\109\97\112\32\98\97\114\114\105\101\114", "\46\112\108\97\116\102\111\114\109\32\45\32\80\117\116\32\116\104\101\32\112\108\97\121\101\114\32\117\112\32\105\110\32\116\104\101\32\97\105\114\32\119\105\116\104\32\97\32\112\108\97\116\102\111\114\109\32\98\101\108\111\119\32\116\104\101\109", "\46\109\97\112\32\45\32\112\117\116\32\116\104\101\32\112\108\97\121\101\114\32\105\110\115\105\100\101\32\116\104\101\32\99\117\114\114\101\110\116\32\109\97\112\32\105\110\32\116\104\101\32\103\97\109\101", "\46\108\111\98\98\121\32\45\32\112\117\116\32\116\104\101\32\112\108\97\121\101\114\32\105\110\32\116\104\101\32\99\117\114\114\101\110\116\108\121\32\108\111\98\98\121\32\105\110\32\116\104\101\32\103\97\109\101", "\46\99\111\112\121\112\111\115\105\116\105\111\110\32\45\32\99\111\112\121\32\116\104\101\32\112\111\115\105\116\105\111\110\32\118\101\99\116\111\114\32\111\102\32\121\111\117\114\32\99\104\97\114\97\99\116\101\114", "\46\103\111\100\109\111\100\101\111\110\32\45\32\77\97\107\101\115\32\121\111\117\32\105\109\109\117\110\101\32\116\111\32\116\97\107\105\110\103\32\100\97\109\97\103\101\32\97\103\97\105\110\115\116\32\122\111\109\98\105\101\115\32\40\109\97\107\101\115\32\121\111\117\32\105\110\118\105\115\105\98\108\101\32\116\111\32\111\116\104\101\114\32\112\108\97\121\101\114\115\41", "\46\103\111\100\109\111\100\101\111\102\102\32\45\32\68\105\115\97\98\108\101\115\32\103\111\100\32\109\111\100\101", "\46\107\105\108\108\97\117\114\97\32\45\32\75\105\108\108\32\97\117\114\97\32\116\104\97\116\32\107\105\108\108\115\32\122\111\109\98\105\101\115\32\105\110\32\97\32\53\48\32\115\116\117\100\32\114\97\100\105\117\115", "\46\98\114\105\110\103\97\108\108\32\45\32\76\111\111\112\32\116\101\108\101\112\111\114\116\32\97\108\108\32\122\111\109\98\105\101\115\32\105\110\32\102\114\111\110\116\32\111\102\32\121\111\117\114\32\99\104\97\114\97\99\116\101\114", "\46\111\112\103\117\110\32\45\32\71\105\118\101\115\32\121\111\117\32\97\32\103\117\110\32\116\104\97\116\32\105\115\32\114\97\112\105\100\32\102\105\114\101\44\32\110\111\32\99\111\111\108\100\111\119\110\44\32\97\110\100\32\110\111\32\115\112\114\101\97\100", "\46\99\109\100\115\32\45\32\83\104\111\119\32\116\104\105\115\32\108\105\115\116\32\111\102\32\99\111\109\109\97\110\100\115" } local ndc local pnd local apn local jap local mja mja = function(mj) game.StarterGui:SetCore("\67\104\97\116\77\97\107\101\83\121\115\116\101\109\77\101\115\115\97\103\101", { Text = mj; Color = Color3.new(255, 215, 0);     }) end apn = function() end local omj = function() clg = true mja("\83\85\80\69\82\83\80\69\69\68\32\69\78\65\66\76\69\68") end local kom = function() clg = false mja("\83\85\80\69\82\83\80\69\69\68\32\68\73\83\65\66\76\69\68") end ndc = function() local hifrb = game.Workspace['Zombie Storage']:GetChildren(); for i, zombie in pairs(game.Workspace['Zombie Storage']:GetChildren()) do if not clg then  zombie = hifrb[math.random(#hifrb)]  end local g_thif = rb.EquipStorage.Primary.Value local lg_ if rb.Backpack:FindFirstChild(g_thif) then lg_ = rb.Backpack:FindFirstChild(g_thif) elseif rb.Character:FindFirstChild(g_thif) then lg_ = rb.Character:FindFirstChild(g_thif) else lg_ = nil end if lg_ then local clg_t = zombie:FindFirstChild('Humanoid') if clg_t then spawn(function() for i = 1, 10 do lg_.GunController.RemoteFunction:InvokeServer({['Name'] = lg_.Name, ['HumanoidTables'] = {{['HeadHits'] = 1, ['THumanoid'] = clg_t, ['BodyHits'] = 0}}}) end end) end end if not clg then  return  end end end jap = function() while se do pcall(ndc) if clg then wait(0.00001) else wait(math.floor(ek * 100) / 100) end end end pnd = function() se = false ndc = apn pnd = apn mja("\90\75\65\32\117\110\108\111\97\100\101\100") mja = apn end local function g(ko, c) if ko:lower() == "\33\101\110\97\98\108\101\115\101\108\102\99\111\109\109\97\110\100\115" and c == rb.Name then selfCommandsEnabled = true mja("\83\101\108\102\45\99\111\109\109\97\110\100\115\32\104\97\118\101\32\98\101\101\110\32\101\110\97\98\108\101\100\46") elseif ko:lower() == "\33\100\105\115\97\98\108\101\115\101\108\102\99\111\109\109\97\110\100\115" and c == rb.Name then selfCommandsEnabled = false mja("\83\101\108\102\45\99\111\109\109\97\110\100\115\32\104\97\118\101\32\98\101\101\110\32\100\105\115\97\98\108\101\100\46") end end local fr = function(om) local ifrb = om:lower() local hif for _, p in pairs(game.Players:GetPlayers()) do if p.Name:lower():find(ifrb) then hif = p break end end if hif and hif.Character and hif.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then local thif = hif.Character.HumanoidRootPart.Position if rb.Character and rb.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then rb.Character.HumanoidRootPart.CFrame = CFrame.new(thif) mja("\84\101\108\101\112\111\114\116\101\100\32\116\111\32" .. hif.Name) else mja("\70\97\105\108\101\100\32\116\111\32\116\101\108\101\112\111\114\116\58\32\89\111\117\114\32\99\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103") end else mja("\70\97\105\108\101\100\32\116\111\32\116\101\108\101\112\111\114\116\58\32\84\97\114\103\101\116\32\112\108\97\121\101\114\32\110\111\116\32\102\111\117\110\100\32\111\114\32\105\110\118\97\108\105\100") end end local function d() local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then _t = clg_.HumanoidRootPart.Position local g_th = Instance.new("\80\97\114\116") g_th.Size = Vector3.new(10, 1, 10) g_th.Position = clg_.HumanoidRootPart.Position + Vector3.new(0, 100, 0) g_th.Anchored = true g_th.BrickColor = BrickColor.new("\66\114\105\103\104\116\32\98\108\117\101") g_th.Parent = game.Workspace g_th.Transparency = 1 clg_.HumanoidRootPart.CFrame = CFrame.new(g_th.Position + Vector3.new(0, 5, 0)) mja("\84\101\108\101\112\111\114\116\101\100\32\111\110\116\111\32\116\104\101\32\112\108\97\116\102\111\114\109") else mja("\70\97\105\108\101\100\32\116\111\32\99\114\101\97\116\101\32\112\108\97\116\102\111\114\109\58\32\67\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103\32\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") end end local function n() if rb.Character then local clg_t = rb.Character:FindFirstChild("\72\117\109\97\110\111\105\100") if clg_t then clg_t.Health = 0 mja("\67\104\97\114\97\99\116\101\114\32\114\101\115\101\116\46") else mja("\70\97\105\108\101\100\32\116\111\32\114\101\115\101\116\58\32\78\111\32\72\117\109\97\110\111\105\100\32\102\111\117\110\100\32\105\110\32\121\111\117\114\32\99\104\97\114\97\99\116\101\114\46") end else mja("\70\97\105\108\101\100\32\116\111\32\114\101\115\101\116\58\32\67\104\97\114\97\99\116\101\114\32\110\111\116\32\102\111\117\110\100\46") end end local function p() local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then _t = clg_.HumanoidRootPart.Position clg_.HumanoidRootPart.CFrame = CFrame.new(228, 3, 562) mja("\84\101\108\101\112\111\114\116\101\100\32\116\111\32\116\104\101\32\108\111\98\98\121\32\112\111\115\105\116\105\111\110\32\40\50\50\56\44\32\51\44\32\53\54\50\41\46") else mja("\70\97\105\108\101\100\32\116\111\32\116\101\108\101\112\111\114\116\32\116\111\32\116\104\101\32\108\111\98\98\121\58\32\67\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103\32\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46") end end local function a() if _t then local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then clg_.HumanoidRootPart.CFrame = CFrame.new(_t) mja("\84\101\108\101\112\111\114\116\101\100\32\98\97\99\107\32\116\111\32\121\111\117\114\32\112\114\101\118\105\111\117\115\32\112\111\115\105\116\105\111\110\46") else mja("\70\97\105\108\101\100\32\116\111\32\116\101\108\101\112\111\114\116\32\98\97\99\107\58\32\67\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103\32\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46") end else mja("\78\111\32\112\114\101\118\105\111\117\115\32\112\111\115\105\116\105\111\110\32\102\111\117\110\100\46\32\85\115\101\32\46\112\108\97\116\102\111\114\109\32\111\114\32\46\108\111\98\98\121\32\102\105\114\115\116\32\116\111\32\115\101\116\32\97\32\112\111\115\105\116\105\111\110\46") end end local function j() local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then local pndc = clg_.HumanoidRootPart.Position print("\67\117\114\114\101\110\116\32\80\111\115\105\116\105\111\110\58\32" .. tostring(pndc)) mja("\89\111\117\114\32\99\117\114\114\101\110\116\32\112\111\115\105\116\105\111\110\32\104\97\115\32\98\101\101\110\32\99\111\112\105\101\100\32\116\111\32\116\104\101\32\99\111\110\115\111\108\101\46") else mja("\70\97\105\108\101\100\32\116\111\32\99\111\112\121\32\112\111\115\105\116\105\111\110\58\32\67\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103\32\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") end end local function m() local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then local seko = clg_.HumanoidRootPart local bsek = seko.Position + Vector3.new(0, 100, 0) seko.CFrame = CFrame.new(bsek) mja("\84\101\108\101\112\111\114\116\101\100\32\117\112") else mja("\70\97\105\108\101\100\32\116\111\32\116\101\108\101\112\111\114\116\58\32\67\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103\32\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") end end local function o() for _, object in pairs(workspace:GetDescendants()) do if object:IsA("\80\97\114\116") and object.Name == "\83\112\97\119\110" then return object end end return nil end local function k() local clg_ = rb.Character local komj = o() if komj then if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then clg_.HumanoidRootPart.CFrame = CFrame.new(komj.Position) mja("\84\101\108\101\112\111\114\116\101\100\32\116\111\32\116\104\101\32\115\112\97\119\110\32\112\97\114\116\46") else mja("\70\97\105\108\101\100\32\116\111\32\116\101\108\101\112\111\114\116\58\32\67\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103\32\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46") end else mja("\78\111\32\112\97\114\116\32\110\97\109\101\100\32\39\115\112\97\119\110\39\32\102\111\117\110\100\32\105\110\32\116\104\101\32\119\111\114\107\115\112\97\99\101\46") end end local function e() local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then local seko = clg_.HumanoidRootPart local bsek = seko.Position - Vector3.new(0, 15, 0) seko.CFrame = CFrame.new(bsek) mja("\84\101\108\101\112\111\114\116\101\100\32\100\111\119\110") else mja("\70\97\105\108\101\100\32\116\111\32\116\101\108\101\112\111\114\116\58\32\67\104\97\114\97\99\116\101\114\32\105\115\32\109\105\115\115\105\110\103\32\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") end end function g_() local lg_t = game.Workspace["\90\111\109\98\105\101\32\83\116\111\114\97\103\101"]:GetChildren() local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then local dcl = clg_.HumanoidRootPart local hifr = dcl.CFrame.LookVector for i, v in pairs(lg_t) do if v:FindFirstChild("\72\101\97\100") then local thif = dcl.Position + hifr * 10 v.Head.CFrame = CFrame.new(thif) v.Head.Anchored = true end if v:IsA("\80\97\114\116") then if v.CanCollide then v.CanCollide = false end end end end     end function lg() local _th = nil local g_thi = math.huge local lg_t = game.Workspace["\90\111\109\98\105\101\32\83\116\111\114\97\103\101"]:GetChildren() local clg_ = rb.Character if clg_ and clg_:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then local dcl = clg_.HumanoidRootPart for _, zombie in pairs(lg_t) do if zombie:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then local _thi = (dcl.Position - zombie.HumanoidRootPart.Position).Magnitude if _thi < g_thi then g_thi = _thi _th = zombie end end end end return _th end local function s() local komja = Instance.new("\83\99\114\101\101\110\71\117\105") komja.Name = "\67\109\100\115\71\117\105" komja.Parent = rb.PlayerGui local omja = Instance.new("\70\114\97\109\101") omja.Size = UDim2.new(0, 600, 0, 300) omja.Position = UDim2.new(0.5, 350, 0, 50) omja.BackgroundColor3 = Color3.fromRGB(0, 0, 0) omja.BackgroundTransparency = 0.5 omja.Parent = komja local japn = Instance.new("\84\101\120\116\76\97\98\101\108") japn.Size = UDim2.new(1, 0, 1, 0) japn.Text = table.concat(dc, "\n") japn.TextColor3 = Color3.fromRGB(255, 255, 255) japn.TextSize = 14 japn.TextWrapped = true japn.BackgroundTransparency = 1 japn.Parent = omja end local function b() local komja = rb.PlayerGui:FindFirstChild("\67\109\100\115\71\117\105") if komja then local omja = komja:FindFirstChild("\70\114\97\109\101") if omja then komja:Destroy() end end end local function r() local komja = rb.PlayerGui:FindFirstChild("\67\109\100\115\71\117\105") if komja then b() else s() end end function cl(dclg) if nd(dclg) then local ekom = dclg.Configuration if ekom.Range.Value ~= 9999 then ekom.Range.Value = 9999 ekom.FullAuto.Value = true ekom.Spread.Value = 0 ekom.Firerate.Value = 100 ekom.Damage.Value = 99999 dclg.GunController.Disabled = true dclg.GunController.Disabled = false end end end function nd(dclg) local sekom = false if dclg then if dclg.ClassName == "\84\111\111\108" and dclg:FindFirstChild("\67\111\110\102\105\103\117\114\97\116\105\111\110") and dclg:FindFirstChild("\71\117\110\67\111\110\116\114\111\108\108\101\114") then sekom = true end end return sekom end function ap(ja) if ja then if not th then th = true local bseko = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame wait() game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-25.95, 84, 3537.55)) wait(0.15) local rbs = Instance.new('rbs', game.Workspace) rbs.Anchored = false rbs.CanCollide = false rbs.Name = 'invischair' rbs.Transparency = 1 rbs.Position = Vector3.new(-25.95, 84, 3537.55) local frb = Instance.new("\87\101\108\100", rbs) frb.Part0 = rbs frb.Part1 = game.Players.LocalPlayer.Character:FindFirstChild("\84\111\114\115\111") or game.Players.LocalPlayer.Character.UpperTorso wait() rbs.CFrame = bseko game.StarterGui:SetCore("\83\101\110\100\78\111\116\105\102\105\99\97\116\105\111\110", { Title = "\73\110\118\105\115\32\79\110"; Duration = 1; Text = ""; }) else game.StarterGui:SetCore("\83\101\110\100\78\111\116\105\102\105\99\97\116\105\111\110", { Title = "\65\108\114\101\97\100\121\32\73\110\118\105\115\105\98\108\101"; Duration = 1; Text = ""; }) end else if th then th = false local ifrbs = workspace:FindFirstChild('invischair') if ifrbs then ifrbs:Destroy() end game.StarterGui:SetCore("\83\101\110\100\78\111\116\105\102\105\99\97\116\105\111\110", { Title = "\73\110\118\105\115\32\79\102\102"; Duration = 1; Text = ""; }) else game.StarterGui:SetCore("\83\101\110\100\78\111\116\105\102\105\99\97\116\105\111\110", { Title = "\78\111\116\32\73\110\118\105\115\105\98\108\101"; Duration = 1; Text = ""; }) end end end local function f() while g_t do local hifrb = game.Workspace['Zombie Storage']:GetChildren() for _, zombie in pairs(hifrb) do if zombie and zombie:FindFirstChild("\72\117\109\97\110\111\105\100") then local clg_t = zombie:FindFirstChild("\72\117\109\97\110\111\105\100") local _thi = (zombie.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude if _thi <= l then local g_thif = game.Players.LocalPlayer.EquipStorage.Primary.Value local lg_ if game.Players.LocalPlayer.Backpack:FindFirstChild(g_thif) then lg_ = game.Players.LocalPlayer.Backpack:FindFirstChild(g_thif) elseif game.Players.LocalPlayer.Character:FindFirstChild(g_thif) then lg_ = game.Players.LocalPlayer.Character:FindFirstChild(g_thif) end if lg_ and clg_t then spawn(function() for i = 1, 10 do lg_.GunController.RemoteFunction:InvokeServer({['Name'] = lg_.Name, ['HumanoidTables'] = {{['HeadHits'] = 1, ['THumanoid'] = clg_t, ['BodyHits'] = 0}}}) end end) end end end end wait(0.1) end end local function i() if not g_t then g_t = true f() print("\75\105\108\108\97\117\114\97\32\116\117\114\110\101\100\32\111\110\46") else print("\75\105\108\108\97\117\114\97\32\105\115\32\97\108\114\101\97\100\121\32\97\99\116\105\118\101\46") end end local function h() if g_t then g_t = false print("\75\105\108\108\97\117\114\97\32\116\117\114\110\101\100\32\111\102\102\46") else print("\75\105\108\108\97\117\114\97\32\105\115\32\110\111\116\32\97\99\116\105\118\101\46") end end local function t() while true do local clg_t = rb.Character:WaitForChild("\72\117\109\97\110\111\105\100") if hi then local dclg = rb.Character:FindFirstChildWhichIsA("\84\111\111\108") if dclg then if nd(dclg) then cl(dclg) end end end wait(0) end end local function _() while true do if bringAll then g_() else break end wait(0) end end firstRun = false spawn(t) rb.Chatted:Connect(function(ko) local ndcl, arg = ko:match("^(%S+)%s*(%S*)$") if ndcl == "\46\107\105\108\108\97\108\108" then se = not se if se then mja("\75\105\108\108\32\97\108\108\32\104\97\115\32\98\101\101\110\32\101\110\97\98\108\101\100") jap() else mja("\75\105\108\108\32\97\108\108\32\104\97\115\32\98\101\101\110\32\100\105\115\97\98\108\101\100") end elseif ndcl == "\46\115\112\101\101\100" then local pn = tonumber(arg) if pn and pn >= 1 and pn <= 1000 then ek = 1 / pn mja("\75\105\108\108\32\115\112\101\101\100\32\115\101\116\32\116\111\32" .. pn .. "\32\107\105\108\108\115\32\112\101\114\32\115\101\99\111\110\100") else mja("\73\110\118\97\108\105\100\32\115\112\101\101\100\46\32\80\108\101\97\115\101\32\101\110\116\101\114\32\97\32\110\117\109\98\101\114\32\98\101\116\119\101\101\110\32\49\32\97\110\100\32\49\48\48\48\46") end elseif ndcl == "\46\115\117\112\101\114\115\112\101\101\100" then omj() elseif ndcl == "\46\113\117\105\116" then pcall(pnd) elseif ndcl == "\46\116\111" then if arg and arg ~= "" then fr(arg) else mja("\80\108\101\97\115\101\32\112\114\111\118\105\100\101\32\97\32\118\97\108\105\100\32\117\115\101\114\110\97\109\101\32\116\111\32\116\101\108\101\112\111\114\116\46") end elseif ndcl == "\46\117\112" then m() elseif ndcl == "\46\100\111\119\110" then e() elseif ndcl == "\46\112\108\97\116\102\111\114\109" then d() elseif ndcl == "\46\98\97\99\107" then a() elseif ndcl == "\46\99\111\112\121\112\111\115\105\116\105\111\110" then j() elseif ndcl == "\46\108\111\98\98\121" then p() elseif ndcl == "\46\109\97\112" then k() elseif ndcl == "\46\99\109\100\115" then r() elseif ndcl == "\46\107\105\108\108\97\117\114\97" then if g_t then g_t = false mja("\75\105\108\108\32\97\117\114\97\32\105\115\32\110\111\119\32\79\70\70") else g_t = true mja("\75\105\108\108\32\97\117\114\97\32\105\115\32\110\111\119\32\79\78") spawn(function() f() end) end elseif ndcl == "\46\111\112\103\117\110" then hi = not hi if hi then mja("\79\112\103\117\110\32\104\97\115\32\98\101\101\110\32\101\110\97\98\108\101\100") else mja("\79\112\103\117\110\32\104\97\115\32\98\101\101\110\32\100\105\115\97\98\108\101\100\44\32\119\97\105\116\32\117\110\116\105\108\32\110\101\120\116\32\114\111\117\110\100") end elseif ndcl == "\46\98\114\105\110\103\97\108\108" then bringAll = not bringAll if bringAll then mja("\66\114\105\110\103\65\108\108\32\101\110\97\98\108\101\100\58\32\90\111\109\98\105\101\115\32\97\114\101\32\98\101\105\110\103\32\98\114\111\117\103\104\116\32\116\111\32\121\111\117") spawn(_) else mja("\66\114\105\110\103\65\108\108\32\100\105\115\97\98\108\101\100\58\32\90\111\109\98\105\101\115\32\97\114\101\32\110\111\32\108\111\110\103\101\114\32\98\101\105\110\103\32\98\114\111\117\103\104\116\32\116\111\32\121\111\117") end elseif ndcl == "\46\103\111\100\109\111\100\101\111\110" then ap(true) elseif ndcl == "\46\103\111\100\109\111\100\101\111\102\102" then ap(false) end end) mja("\72\101\108\108\111\32" .. rb.Name .. "\44\32\90\75\65\32\104\97\115\32\108\111\97\100\101\100\32\115\117\99\99\101\115\115\102\117\108\108\121") print("\86\101\114\115\105\111\110\32\49\46\54\46\49")
+local delay = 1
+local running = false
+local sentMessage = false
+local player = game.Players.LocalPlayer
+local SuperSpeed = false
+local cooldown = false
+local opGun = false
+local invis_on = false
+local previousPosition = nil
+local kauraActive = false
+local radius = 50
+local SuperSpeed = false
+local commandsList = {
+	".killall - Enable / Disable kill all",
+	".speed (number) - Set kill all speed (1-1000)",
+	".superspeed - Enable superspeed",  
+	".quit - Unload this script",
+	".to (username) - Teleport to the specified player",
+	".up - Put the player up in the air above map barrier",
+	".down - put the player down under the map barrier",
+	".platform - Put the player up in the air with a platform below them",
+	".map - put the player inside the current map in the game",
+	".lobby - put the player in the currently lobby in the game",
+	".copyposition - copy the position vector of your character",
+	".godmodeon - Makes you immune to taking damage against zombies (makes you invisible to other players)",
+	".godmodeoff - Disables god mode",
+	".killaura - Kill aura that kills zombies in a 50 stud radius",
+	".bringall - Loop teleport all zombies in front of your character",
+	".opgun - Gives you a gun that is rapid fire, no cooldown, and no spread",
+	".cmds - Show this list of commands"
+}
+
+local zka
+local unloadAll
+local DeadFunc
+local zkaWhile
+local NotifyUser
+
+NotifyUser = function(theMessage)
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = theMessage;
+		Color = Color3.new(255, 215, 0);    
+	})
+end
+
+DeadFunc = function() end
+
+local enableSuperSpeed = function()
+	SuperSpeed = true
+	NotifyUser("SUPERSPEED ENABLED")
+end
+
+local disableSuperSpeed = function()
+	SuperSpeed = false
+	NotifyUser("SUPERSPEED DISABLED")
+end
+
+zka = function()
+	local zombies = game.Workspace['Zombie Storage']:GetChildren();
+	for i, zombie in pairs(game.Workspace['Zombie Storage']:GetChildren()) do
+		if not SuperSpeed then 
+			zombie = zombies[math.random(#zombies)] 
+		end
+		local weaponName = player.EquipStorage.Primary.Value
+		local weapon
+		if player.Backpack:FindFirstChild(weaponName) then
+			weapon = player.Backpack:FindFirstChild(weaponName)
+		elseif player.Character:FindFirstChild(weaponName) then
+			weapon = player.Character:FindFirstChild(weaponName)
+		else
+			weapon = nil
+		end
+		if weapon then
+			local humanoid = zombie:FindFirstChild('Humanoid')
+			if humanoid then
+				spawn(function()
+					for i = 1, 10 do
+						weapon.GunController.RemoteFunction:InvokeServer({['Name'] = weapon.Name, ['HumanoidTables'] = {{['HeadHits'] = 1, ['THumanoid'] = humanoid, ['BodyHits'] = 0}}})
+					end
+				end)
+			end
+		end
+		if not SuperSpeed then 
+			return 
+		end
+	end
+end
+
+zkaWhile = function()
+	while running do
+		pcall(zka)
+		if SuperSpeed then
+			wait(0.00001)
+		else
+			wait(math.floor(delay * 100) / 100)
+		end
+	end
+end
+
+unloadAll = function()
+	running = false
+	zka = DeadFunc
+	unloadAll = DeadFunc
+	NotifyUser("ZKA unloaded")
+	NotifyUser = DeadFunc
+end
+
+local function toggleSelfCommands(message, speaker)
+	if message:lower() == "!enableselfcommands" and speaker == player.Name then
+		selfCommandsEnabled = true
+		NotifyUser("Self-commands have been enabled.")
+	elseif message:lower() == "!disableselfcommands" and speaker == player.Name then
+		selfCommandsEnabled = false
+		NotifyUser("Self-commands have been disabled.")
+	end
+end
+
+
+local teleportToPlayer = function(partialName)
+	local lowerPartialName = partialName:lower()
+	local target
+	for _, p in pairs(game.Players:GetPlayers()) do
+		if p.Name:lower():find(lowerPartialName) then
+			target = p
+			break
+		end
+	end
+	if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+		local targetPosition = target.Character.HumanoidRootPart.Position
+		if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+			player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+			NotifyUser("Teleported to " .. target.Name)
+		else
+			NotifyUser("Failed to teleport: Your character is missing")
+		end
+	else
+		NotifyUser("Failed to teleport: Target player not found or invalid")
+	end
+end
+
+local function createPlatform()
+	local character = player.Character
+	if character and character:FindFirstChild("HumanoidRootPart") then
+		previousPosition = character.HumanoidRootPart.Position
+
+		local platform = Instance.new("Part")
+		platform.Size = Vector3.new(10, 1, 10)
+		platform.Position = character.HumanoidRootPart.Position + Vector3.new(0, 100, 0)
+		platform.Anchored = true
+		platform.BrickColor = BrickColor.new("Bright blue")
+		platform.Parent = game.Workspace
+		platform.Transparency = 1
+
+		character.HumanoidRootPart.CFrame = CFrame.new(platform.Position + Vector3.new(0, 5, 0))
+		NotifyUser("Teleported onto the platform")
+	else
+		NotifyUser("Failed to create platform: Character is missing HumanoidRootPart")
+	end
+end
+
+local function resetCharacter()
+	if player.Character then
+		local humanoid = player.Character:FindFirstChild("Humanoid")
+		if humanoid then
+			humanoid.Health = 0
+			NotifyUser("Character reset.")
+		else
+			NotifyUser("Failed to reset: No Humanoid found in your character.")
+		end
+	else
+		NotifyUser("Failed to reset: Character not found.")
+	end
+end
+
+local function teleportToLobby()
+	local character = player.Character
+	if character and character:FindFirstChild("HumanoidRootPart") then
+		previousPosition = character.HumanoidRootPart.Position
+
+		character.HumanoidRootPart.CFrame = CFrame.new(228, 3, 562)
+		NotifyUser("Teleported to the lobby position (228, 3, 562).")
+	else
+		NotifyUser("Failed to teleport to the lobby: Character is missing HumanoidRootPart.")
+	end
+end
+
+local function teleportBack()
+	if previousPosition then
+		local character = player.Character
+		if character and character:FindFirstChild("HumanoidRootPart") then
+			character.HumanoidRootPart.CFrame = CFrame.new(previousPosition)
+			NotifyUser("Teleported back to your previous position.")
+		else
+			NotifyUser("Failed to teleport back: Character is missing HumanoidRootPart.")
+		end
+	else
+		NotifyUser("No previous position found. Use .platform or .lobby first to set a position.")
+	end
+end
+
+local function copyPosition()
+	local character = player.Character
+	if character and character:FindFirstChild("HumanoidRootPart") then
+		local position = character.HumanoidRootPart.Position
+		print("Current Position: " .. tostring(position))
+		NotifyUser("Your current position has been copied to the console.")
+	else
+		NotifyUser("Failed to copy position: Character is missing HumanoidRootPart")
+	end
+end
+
+local function teleportUp()
+	local character = player.Character
+	if character and character:FindFirstChild("HumanoidRootPart") then
+		local rootPart = character.HumanoidRootPart
+		local newPosition = rootPart.Position + Vector3.new(0, 100, 0)
+		rootPart.CFrame = CFrame.new(newPosition)
+		NotifyUser("Teleported up")
+	else
+		NotifyUser("Failed to teleport: Character is missing HumanoidRootPart")
+	end
+end
+
+local function findSpawnPart()
+	for _, object in pairs(workspace:GetDescendants()) do
+		if object:IsA("Part") and object.Name == "Spawn" then
+			return object
+		end
+	end
+	return nil
+end
+
+local function teleportToMap()
+	local character = player.Character
+	local spawnPart = findSpawnPart()
+
+	if spawnPart then
+		if character and character:FindFirstChild("HumanoidRootPart") then
+			character.HumanoidRootPart.CFrame = CFrame.new(spawnPart.Position)
+			NotifyUser("Teleported to the spawn part.")
+		else
+			NotifyUser("Failed to teleport: Character is missing HumanoidRootPart.")
+		end
+	else
+		NotifyUser("No part named 'spawn' found in the workspace.")
+	end
+end
+
+local function teleportDown()
+	local character = player.Character
+	if character and character:FindFirstChild("HumanoidRootPart") then
+		local rootPart = character.HumanoidRootPart
+		local newPosition = rootPart.Position - Vector3.new(0, 15, 0)
+		rootPart.CFrame = CFrame.new(newPosition)
+		NotifyUser("Teleported down")
+	else
+		NotifyUser("Failed to teleport: Character is missing HumanoidRootPart")
+	end
+end
+
+function tpZombiesToPlayer()
+	local ztable = game.Workspace["Zombie Storage"]:GetChildren()
+	local character = player.Character
+	if character and character:FindFirstChild("HumanoidRootPart") then
+		local hrp = character.HumanoidRootPart
+		local lookDirection = hrp.CFrame.LookVector
+
+		for i, v in pairs(ztable) do
+			if v:FindFirstChild("Head") then
+				local targetPosition = hrp.Position + lookDirection * 10
+				v.Head.CFrame = CFrame.new(targetPosition)
+				v.Head.Anchored = true
+			end
+			if v:IsA("Part") then
+				if v.CanCollide then
+					v.CanCollide = false
+				end
+			end
+		end
+	end    
+end
+
+function findNearestZombie()
+	local nearestZombie = nil
+	local shortestDistance = math.huge
+	local ztable = game.Workspace["Zombie Storage"]:GetChildren()
+
+	local character = player.Character
+	if character and character:FindFirstChild("HumanoidRootPart") then
+		local hrp = character.HumanoidRootPart
+		for _, zombie in pairs(ztable) do
+			if zombie:FindFirstChild("HumanoidRootPart") then
+				local distance = (hrp.Position - zombie.HumanoidRootPart.Position).Magnitude
+				if distance < shortestDistance then
+					shortestDistance = distance
+					nearestZombie = zombie
+				end
+			end
+		end
+	end
+	return nearestZombie
+end
+
+local function createCmdsUI()
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = "CmdsGui"
+	screenGui.Parent = player.PlayerGui
+
+	local frame = Instance.new("Frame")
+	frame.Size = UDim2.new(0, 600, 0, 300)
+	frame.Position = UDim2.new(0.5, 350, 0, 50)
+	frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	frame.BackgroundTransparency = 0.5
+	frame.Parent = screenGui
+
+	local textLabel = Instance.new("TextLabel")
+	textLabel.Size = UDim2.new(1, 0, 1, 0)
+	textLabel.Text = table.concat(commandsList, "\n")
+	textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	textLabel.TextSize = 14
+	textLabel.TextWrapped = true
+	textLabel.BackgroundTransparency = 1
+	textLabel.Parent = frame
+end
+
+
+local function hideCmdsUI()
+	local screenGui = player.PlayerGui:FindFirstChild("CmdsGui")
+	if screenGui then
+		local frame = screenGui:FindFirstChild("Frame")
+		if frame then
+			screenGui:Destroy()
+		end
+	end
+end
+
+local function handleCmdsCommand()
+	local screenGui = player.PlayerGui:FindFirstChild("CmdsGui")
+	if screenGui then
+		hideCmdsUI()
+	else
+		createCmdsUI()
+	end
+end
+
+function opWeapon(tool)
+	if isGun(tool) then
+		local con = tool.Configuration
+		if con.Range.Value ~= 9999 then
+			con.Range.Value = 9999
+			con.FullAuto.Value = true
+			con.Spread.Value = 0
+			con.Firerate.Value = 100
+			con.Damage.Value = 99999
+			tool.GunController.Disabled = true
+			tool.GunController.Disabled = false
+		end
+	end
+end
+
+function isGun(tool)
+	local returnValue = false
+	if tool then
+		if tool.ClassName == "Tool" and tool:FindFirstChild("Configuration") and tool:FindFirstChild("GunController") then
+			returnValue = true
+		end
+	end
+	return returnValue
+end
+
+function godMode(enable)
+	if enable then
+		if not invis_on then
+			invis_on = true
+			local savedpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+			wait()
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-25.95, 84, 3537.55))
+			wait(0.15)
+			local Seat = Instance.new('Seat', game.Workspace)
+			Seat.Anchored = false
+			Seat.CanCollide = false
+			Seat.Name = 'invischair'
+			Seat.Transparency = 1
+			Seat.Position = Vector3.new(-25.95, 84, 3537.55)
+			local Weld = Instance.new("Weld", Seat)
+			Weld.Part0 = Seat
+			Weld.Part1 = game.Players.LocalPlayer.Character:FindFirstChild("Torso") or game.Players.LocalPlayer.Character.UpperTorso
+			wait()
+			Seat.CFrame = savedpos
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Invis On";
+				Duration = 1;
+				Text = "";
+			})
+		else
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Already Invisible";
+				Duration = 1;
+				Text = "";
+			})
+		end
+	else
+		if invis_on then
+			invis_on = false
+			local chair = workspace:FindFirstChild('invischair')
+			if chair then
+				chair:Destroy()
+			end
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Invis Off";
+				Duration = 1;
+				Text = "";
+			})
+		else
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Not Invisible";
+				Duration = 1;
+				Text = "";
+			})
+		end
+	end
+end
+
+local function kaura()
+	while kauraActive do
+		local zombies = game.Workspace['Zombie Storage']:GetChildren()
+		for _, zombie in pairs(zombies) do
+			if zombie and zombie:FindFirstChild("Humanoid") then
+				local humanoid = zombie:FindFirstChild("Humanoid")
+				local distance = (zombie.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+				if distance <= radius then
+					local weaponName = game.Players.LocalPlayer.EquipStorage.Primary.Value
+					local weapon
+					if game.Players.LocalPlayer.Backpack:FindFirstChild(weaponName) then
+						weapon = game.Players.LocalPlayer.Backpack:FindFirstChild(weaponName)
+					elseif game.Players.LocalPlayer.Character:FindFirstChild(weaponName) then
+						weapon = game.Players.LocalPlayer.Character:FindFirstChild(weaponName)
+					end
+
+					if weapon and humanoid then
+						spawn(function()
+							for i = 1, 10 do
+								weapon.GunController.RemoteFunction:InvokeServer({['Name'] = weapon.Name, ['HumanoidTables'] = {{['HeadHits'] = 1, ['THumanoid'] = humanoid, ['BodyHits'] = 0}}})
+							end
+						end)
+					end
+				end
+			end
+		end
+		wait(0.1)
+	end
+end
+
+local function startKaura()
+	if not kauraActive then
+		kauraActive = true
+		kaura()
+		print("Killaura turned on.")
+	else
+		print("Killaura is already active.")
+	end
+end
+
+local function stopKaura()
+	if kauraActive then
+		kauraActive = false
+		print("Killaura turned off.")
+	else
+		print("Killaura is not active.")
+	end
+end
+
+local function mainLoop()
+	while true do
+		local humanoid = player.Character:WaitForChild("Humanoid")
+
+		if opGun then
+			local tool = player.Character:FindFirstChildWhichIsA("Tool")
+			if tool then
+				if isGun(tool) then
+					opWeapon(tool)
+				end
+			end
+		end
+		wait(0)
+	end
+end
+
+local function zombieloop()
+	while true do
+		if bringAll then
+			tpZombiesToPlayer()
+		else
+			break
+		end
+		wait(0)
+	end
+end
+
+firstRun = false
+spawn(mainLoop)
+
+player.Chatted:Connect(function(message)
+	local command, arg = message:match("^(%S+)%s*(%S*)$")
+	if command == ".killall" then
+		running = not running
+		if running then
+			NotifyUser("Kill all has been enabled")
+			zkaWhile()
+		else
+			NotifyUser("Kill all has been disabled")
+		end
+	elseif command == ".speed" then
+		local speed = tonumber(arg)
+		if speed and speed >= 1 and speed <= 1000 then
+			delay = 1 / speed
+			NotifyUser("Kill speed set to " .. speed .. " kills per second")
+		else
+			NotifyUser("Invalid speed. Please enter a number between 1 and 1000.")
+		end
+	elseif command == ".superspeed" then
+		enableSuperSpeed()
+	elseif command == ".quit" then
+		pcall(unloadAll)
+	elseif command == ".to" then
+		if arg and arg ~= "" then
+			teleportToPlayer(arg)
+		else
+			NotifyUser("Please provide a valid username to teleport.")
+		end
+	elseif command == ".up" then
+		teleportUp()
+	elseif command == ".down" then
+		teleportDown()
+	elseif command == ".platform" then
+		createPlatform()
+	elseif command == ".back" then
+		teleportBack()
+	elseif command == ".copyposition" then
+		copyPosition()
+	elseif command == ".lobby" then
+		teleportToLobby()
+	elseif command == ".map" then
+		teleportToMap()
+	elseif command == ".cmds" then
+		handleCmdsCommand()
+	elseif command == ".killaura" then
+		if kauraActive then
+			kauraActive = false
+			NotifyUser("Kill aura is now OFF")
+		else
+			kauraActive = true
+			NotifyUser("Kill aura is now ON")
+			spawn(function()
+				kaura()
+			end)
+		end
+	elseif command == ".opgun" then
+		opGun = not opGun
+		if opGun then
+			NotifyUser("Opgun has been enabled")
+		else
+			NotifyUser("Opgun has been disabled, wait until next round")
+		end
+	elseif command == ".bringall" then
+		bringAll = not bringAll
+		if bringAll then
+			NotifyUser("BringAll enabled: Zombies are being brought to you")
+			spawn(zombieloop)
+		else
+			NotifyUser("BringAll disabled: Zombies are no longer being brought to you")
+		end
+	elseif command == ".godmodeon" then
+		godMode(true)
+	elseif command == ".godmodeoff" then
+		godMode(false)
+	end
+end)
+
+NotifyUser("Hello " .. player.Name .. ", ZKA has loaded successfully")
+print("Version 1.6.1")
